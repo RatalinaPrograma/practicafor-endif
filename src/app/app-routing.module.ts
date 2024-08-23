@@ -19,6 +19,8 @@ const routes: Routes = [
     path: 'agregar',
     loadChildren: () => import('./pages/agregar/agregar.module').then( m => m.AgregarPageModule)
   },
+
+  //siempre debe ir al ultimo o sino jamas va a reconocer las demás páginas que queden abajo
   {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)

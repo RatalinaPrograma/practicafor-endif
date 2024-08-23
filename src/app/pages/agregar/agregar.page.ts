@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarPage implements OnInit {
 
-  constructor() { }
+  Comuna: string = "";
+  Edad: number = 0;
+  Usuario: string = "";
+  constructor(private router: Router, private activedroute: ActivatedRoute) {
+    //realizar la captura de info que viene por navigationExtras
+    this.activedroute.queryParams.subscribe();
+  }
 
   ngOnInit() {
   }

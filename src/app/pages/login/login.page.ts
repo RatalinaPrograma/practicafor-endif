@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -35,14 +35,23 @@ export class LoginPage implements OnInit {
   ]
 
 
-  
-  constructor(private router:Router) { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  irPagina(){
+  irPagina() {
+    //crear variable de contexto
+    let navigationextras: NavigationExtras = {
+      state: {
+        comuna: this.comuna,
+        edad:this.edad,
+        usuario: this.nombreUsuario
+      }
+    }
+
     //crear la logica de programación que requiero
-    this.router.navigate(['/agregar']);
+    this.router.navigate(['/agregar'], navigationextras);
   }
 
 }
